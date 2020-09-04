@@ -1,27 +1,25 @@
 import React from "react";
-import logo from "./logo.svg";
+import Navegador from "./components/layouts/nav_bar/BarraNavegacion";
 import "./App.css";
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <p> 9memes </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import { Switch, Route } from "react-router-dom";
+import Principal from "./components/pages/Principal";
+import Home from "./components/pages/Home";
+import ListaMeme from "./components/pages/ListaMeme";
+class App extends React.Component {
+  render() {
+    return (
+      <div>
+        <Navegador />
+        <div id="contenedorDeLista">
+          <Switch>
+            <Route exact path="/Home" component={Home}></Route>
+            <Route path="/Principal" component={Principal}></Route>
+            <Route path="/Lista" component={ListaMeme}></Route>
+          </Switch>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;
