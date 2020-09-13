@@ -18,15 +18,14 @@ import avatar from "../layouts/nav_bar/9memes.jpeg";
 /** Import de estilo */
 import "./ListaMeme.css";
 
-class GenericList extends React.Component {
-  render(props) {
-    return (
+function GenericList(props) {
+       return (
       <Container className="container">
         {props.loading ? (
           <Spinner animation="border" variant="success" />
         ) : (
           <CardColumns>
-            {props.lista.map((elemento) => (
+            {props.data.map((elemento) => (
               <ItemMeme direccion={elemento.url} key={elemento.id} />
             ))}
           </CardColumns>
@@ -34,7 +33,7 @@ class GenericList extends React.Component {
       </Container>
     );
   }
-}
+
 function ItemMeme(props) {
   return (
     <Card border="success" style={{ borderWidth: "3px" }}>
