@@ -18,27 +18,15 @@ import avatar from "../layouts/nav_bar/9memes.jpeg";
 /** Import de estilo */
 import "./ListaMeme.css";
 
-class ListaMeme extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { loading: true, lista: null };
-  }
-  async componentDidMount() {
-    const url = "https://jsonplaceholder.typicode.com/photos";
-    const api = await fetch(url);
-    let data = await api.json();
-    data = data.filter((elemento) => elemento.id < 101);
-    this.setState({ loading: false, lista: data });
-  }
-
-  render() {
+class GenericList extends React.Component {
+  render(props) {
     return (
       <Container className="container">
-        {this.state.loading ? (
+        {props.loading ? (
           <Spinner animation="border" variant="success" />
         ) : (
           <CardColumns>
-            {this.state.lista.map((elemento) => (
+            {props.lista.map((elemento) => (
               <ItemMeme direccion={elemento.url} key={elemento.id} />
             ))}
           </CardColumns>
@@ -81,4 +69,4 @@ function ItemMeme(props) {
   );
 }
 
-export default ListaMeme;
+export default GenericList;
