@@ -7,7 +7,7 @@ import { navImagen, navItem } from "./HelperNavBar";
 import { GiFlame, GiLindenLeaf } from "react-icons/gi";
 import { AiOutlineThunderbolt } from "react-icons/ai";
 import { FaPoo } from "react-icons/fa";
-import { Container } from "react-bootstrap";
+import { Container, NavDropdown } from "react-bootstrap";
 
 class BarraNavegacion extends React.Component {
   render() {
@@ -26,8 +26,19 @@ class BarraNavegacion extends React.Component {
           <NavbarCollapse id="responsive-navbar-nav"> */}
           {navItem("/All", "All")}
           {navItem("/FreshNine", <GiLindenLeaf />, "FreshNine")}
-          {navItem("/UpcomingNine", <AiOutlineThunderbolt />, "UpcomingNine")}
-          {navItem("/PopularNine", <GiFlame />, "PopularNine")}
+          <NavDropdown
+             bg="light"
+             title="Category"
+            id="collasible-nav-dropdown"
+                     
+                       
+          >
+            {navItem("/Funny", <AiOutlineThunderbolt />, "Funny")}
+            {navItem("/Animals", <AiOutlineThunderbolt />, "Animals")}
+            {navItem("/Argentina", <AiOutlineThunderbolt />, "Argentina")}
+          </NavDropdown>
+
+          {navItem("/MostPopular", <GiFlame />, "MostPopular")}
           {navItem("/ImpopularNine", <FaPoo />, "ImpopularNine")}
           {/* </NavbarCollapse>*/}
         </Container>

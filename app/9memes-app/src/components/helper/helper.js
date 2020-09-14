@@ -22,6 +22,7 @@ function GenericList(props) {
        return (
       <Container className="container">
         {props.loading ? (
+          
           <Spinner animation="border" variant="success" />
         ) : (
           <CardColumns>
