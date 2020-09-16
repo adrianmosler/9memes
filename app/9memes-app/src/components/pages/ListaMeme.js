@@ -24,10 +24,10 @@ class ListaMeme extends React.Component {
     this.state = { loading: true, lista: null };
   }
   async componentDidMount() {
-    const url = "https://jsonplaceholder.typicode.com/photos";
+    const url = "https://api9memes.herokuapp.com/publication?skip=0&limit=50";
     const api = await fetch(url);
     let data = await api.json();
-    data = data.filter((elemento) => elemento.id < 101);
+    //data = data.filter((elemento) => elemento.id < 101);
     this.setState({ loading: false, lista: data });
   }
 
@@ -39,7 +39,14 @@ class ListaMeme extends React.Component {
         ) : (
           <CardColumns>
             {this.state.lista.map((elemento) => (
-              <ItemMeme direccion={elemento.url} key={elemento.id} />
+              <ItemMeme 
+                key={elemento._id} 
+                title={elemento.title} 
+                likes={elemento.likes} 
+                unlikes={elemento.unLikes} 
+                createdBy={elemento.createdBy}
+                img={elemento.img?.secure_url}
+              />
             ))}
           </CardColumns>
         )}
@@ -48,6 +55,7 @@ class ListaMeme extends React.Component {
   }
 }
 function ItemMeme(props) {
+  const {elemento,title,likes,unlikes,createdBy,img} = props;
   return (
     <Card border="success" style={{ borderWidth: "3px" }}>
       <Card.Header>
@@ -57,24 +65,27 @@ function ItemMeme(props) {
           </Col>
           <Col>
             <pre>
-              <h5>Titulo</h5>
-              UserName
+            <h5>{title}</h5>
+              Publicado por : 
+              {createdBy?.userName}
             </pre>
           </Col>
         </Row>
       </Card.Header>
-      <Card.Img variant="top" src={props.direccion} />
+      <Card.Img variant="top" src={img} />
       <Card.Footer>
         <h5>
-          {" "}
-          12
-          <Button className="btn-circle" variant="success">
-            <AiOutlineLike />
-          </Button>{" "}
-          -12
-          <Button className="btn-circle" variant="danger">
-            <AiOutlineDislike />
-          </Button>{" "}
+
+              {likes.length}
+              <Button className="btn-circle ml-1 mr-4" variant="success">
+                <AiOutlineLike />
+              </Button>
+
+              -{unlikes.length}
+              <Button className="btn-circle ml-1" variant="danger">
+                <AiOutlineDislike />
+              </Button>
+
         </h5>
       </Card.Footer>
     </Card>
