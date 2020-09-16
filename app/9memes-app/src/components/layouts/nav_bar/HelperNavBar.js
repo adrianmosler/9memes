@@ -2,7 +2,7 @@ import memes from "./9memes.jpeg";
 import Image from "react-bootstrap/Image";
 import React from "react";
 import NavbarBrand from "react-bootstrap/NavbarBrand";
-import { NavLink } from "react-router-dom";
+import { NavLink, } from "react-router-dom";
 export const navImagen = () => {
   return (
     <NavbarBrand>

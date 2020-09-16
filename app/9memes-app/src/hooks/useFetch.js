@@ -1,26 +1,58 @@
 import { useState, useEffect } from "react";
 
-const useFetch=url=>{
-const [data, setData] = useState([]);
-const [loading, setLoading] = useState(true);
-const [error, setError] = useState(null);
+const useFetch = (url) => {
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-useEffect(() => {
-  const fetchResource = async () => {
-    try {
-      let res = await fetch(url);
-      let data = await res.json();
-      data = data.filter((elemento) => elemento.id < 101);
-      setData(data);
-      setLoading(false);
-    }
-    catch(error){
+  useEffect(() => {
+    const fetchResource = async () => {
+      try {
+        let res = await fetch(url);
+        let data = await res.json();
+        data = data.filter((elemento) => elemento.id < 101);
+        setData(data);
+        setLoading(false);
+      } catch (error) {
         setLoading(false);
         setError(error);
-    }}
-    fetchResource()    
-    },[url])
-return{data,loading, error}
-
-}
+      }
+    };
+    fetchResource();
+  }, [url]);
+  return { data, loading, error };
+};
 export default useFetch;
+
+
+
+/* 
+import {API_KEY, API_URL} from './settings'
+
+const fromApiResponseToGifs = apiResponse => {
+  const {data = []} = apiResponse
+  if (Array.isArray(data)) {
+    const gifs = data.map(image => {
+      const {images, title, id} = image
+      const { url } = images.downsized_medium
+      return { title, id, url }
+    })
+    return gifs
+  }
+  return []
+}
+
+export default function getGifs({
+  limit = 15,
+  rating = "g",
+  keyword = "morty",
+  page = 0,
+} = {}) {
+  const apiURL = `${API_URL}/gifs/search?api_key=${API_KEY}&q=${keyword}&limit=${limit}&offset=${
+    page * limit
+  }&rating=${rating}&lang=en`
+
+  return fetch(apiURL)
+    .then((res) => res.json())
+    .then(fromApiResponseToGifs)
+} */
