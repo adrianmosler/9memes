@@ -16,6 +16,8 @@ function GenericList(props) {
             key={elemento._id}
             title={elemento.title}
             categoria={elemento.category}
+            like={elemento.likes}
+            unLike={elemento.unLikes}
           />
         ))}
       </CardColumns>
@@ -49,12 +51,12 @@ function Sector_Footer(props) {
 
   return (
     <Card.Footer>
-      {props.category}
-      {props.like ? props.like.length : 0}
+      {salida}
+      {props.like ? props.like.length : 0} 
       <Button className="btn-circle" variant="success">
         <AiOutlineLike />
       </Button>{" "}
-      -{props.unLike ? props.unLike.length : 0}
+      -{props.unLike ? props.unLike.length : 0} 
       <Button className="btn-circle" variant="danger">
         <AiOutlineDislike />
       </Button>{" "}
