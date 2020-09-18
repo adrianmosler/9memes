@@ -41,8 +41,8 @@ function CardMeme(props) {
     <Card border="success" style={{ borderWidth: "3px" }}>
       <Sector_Header title={props.title} />
       <Card.Img variant="top" src={props.direccion?.secure_url} />
-      <Sectro_Footer
-        category={props.category}
+      <Sector_Footer
+        category={props.categoria}
         like={props.like}
         unLike={props.unLike}
       />
@@ -58,13 +58,16 @@ function Sector_Header(props) {
 }
 function Sector_Footer(props) {
   let salida="";
-   props.categoria.forEach(elemento=>salida += elemento.name+'\n');
+   props.category.forEach(elemento=>salida += elemento.name+'\n');
    
   return (
-    
-    <Card.Footer >
+       <Card.Footer >
+
       <h5 style={{textAlign:"right"}}>
-        {salida}
+        {""}
+        <h6 style={{textAlign:"left"}}>
+          {salida}
+        </h6>
              
         12
         

@@ -27,11 +27,7 @@ function Nav_bar() {
         <ItemNav url="/MostPopular" icons={<GiFlame />} name="Most Popular" />
         <ItemNav url="/Impopular" icons={<FaPoo />} name="Impopular" />
 
-<<<<<<< HEAD
-        <NavDropdown title="Category"  id="collasible-nav-dropdown dropdown-variants-success" >
-=======
-        <NavDropdown title="Category" id="collasible-nav-dropdown" as={NavLink}>
->>>>>>> 112c16fd6e95bccc07c58207b0fb7aafdc69ec06
+        <NavDropdown title="Category" style={{ color: "#2EFE2E" }} id="collasible-nav-dropdown">
           <ItemNav url="/Funny" icons={<AiOutlineThunderbolt />} name="Funny" />
           <ItemNav
             url="/Animals"
