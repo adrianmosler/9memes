@@ -56,9 +56,11 @@ function ItemMeme(props) {
         <h5>
           {" "}
           12
-          <Button className="btn-circle" variant="success">
+          
+          <Button className="btn-circle" variant="success" >
             <AiOutlineLike />
           </Button>{" "}
+          
           -12
           <Button className="btn-circle" variant="danger">
             <AiOutlineDislike />
