@@ -6,7 +6,7 @@ function FreshNine() {
     "https://api9memes.herokuapp.com/publication?limit=9&skip=0"
   );
 
-  return <GenericList data={data} loading={loading} />;
+  return <GenericList data={data} />;
 }
 
 export default FreshNine;
