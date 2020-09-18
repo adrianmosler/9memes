@@ -1,25 +1,11 @@
 /** Import de react y bootstrap */
 import React from "react";
 /** Import de react-bootstrap */
-import {
-  CardColumns,
-  Card,
-  Row,
-  Col,
-  Container,
-  Button,
-  Image,
-  Spinner,
-} from "react-bootstrap";
+import { CardColumns, Card, Container, Button } from "react-bootstrap";
 /** Import de react-icons */
 import { AiOutlineDislike, AiOutlineLike } from "react-icons/ai";
-/** Import de imagenes de prueba */
-import avatar from "../layouts/nav_bar/9memes.jpeg";
 /** Import de estilo */
 import "./ListaMeme.css";
-{
-  /* <Spinner animation="border" variant="success" /> */
-}
 function GenericList(props) {
   return (
     <Container className="container">
@@ -60,11 +46,11 @@ function Sectro_Footer(props) {
   return (
     <Card.Footer>
       {props.category}
-      12
+      {props.like ? props.like.length : 0}
       <Button className="btn-circle" variant="success">
         <AiOutlineLike />
       </Button>{" "}
-      -12
+      -{props.unLike ? props.unLike.length : 0}
       <Button className="btn-circle" variant="danger">
         <AiOutlineDislike />
       </Button>{" "}
