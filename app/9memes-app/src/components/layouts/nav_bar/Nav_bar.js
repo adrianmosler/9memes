@@ -12,6 +12,7 @@ import {
 } from "react-bootstrap";
 import { GiFlame, GiLindenLeaf } from "react-icons/gi";
 import { AiOutlineThunderbolt } from "react-icons/ai";
+import { AiOutlineLogin } from "react-icons/ai";
 import { FaPoo } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 
@@ -38,6 +39,7 @@ function Nav_bar() {
             name="Argentina"
           />
         </NavDropdown>
+        <ItemNav url="/Login" icons={<AiOutlineLogin />} name="Login" />
       </Container>
     </Navbar>
   );
