@@ -25,7 +25,11 @@ function GenericList(props) {
     <Container className="container">
       <CardColumns>
         {props.data.map((elemento) => (
-          <CardMeme direccion={elemento.img} key={elemento._id} categoria ={elemento.category} />
+          <CardMeme
+            direccion={elemento.img}
+            key={elemento._id}
+            title={elemento.title}  categoria ={elemento.category}
+          />
         ))}
       </CardColumns>
     </Container>
@@ -35,26 +39,20 @@ function GenericList(props) {
 function CardMeme(props) {
   return (
     <Card border="success" style={{ borderWidth: "3px" }}>
-      <Sector_Header />
-      <Card.Img variant="top" src={props.direccion} />
-      <Sector_Footer categoria={props.categoria}  />
+      <Sector_Header title={props.title} />
+      <Card.Img variant="top" src={props.direccion?.secure_url} />
+      <Sectro_Footer
+        category={props.category}
+        like={props.like}
+        unLike={props.unLike}
+      />
     </Card>
   );
 }
-function Sector_Header() {
+function Sector_Header(props) {
   return (
     <Card.Header>
-      <Row>
-        <Col xs={2}>
-          <Image src={avatar} width="40" height="40" roundedCircle />
-        </Col>
-        <Col>
-          <pre>
-            <h5>Titulo</h5>
-            UserName
-          </pre>
-        </Col>
-      </Row>
+      <pre>{props.title}</pre>
     </Card.Header>
   );
 }

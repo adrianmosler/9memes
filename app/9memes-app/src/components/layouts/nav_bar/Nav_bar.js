@@ -13,6 +13,7 @@ import {
 import { GiFlame } from "react-icons/gi";
 import { IoIosHome } from "react-icons/io";
 import { AiOutlineThunderbolt } from "react-icons/ai";
+import { AiOutlineLogin } from "react-icons/ai";
 import { FaPoo } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 
@@ -26,7 +27,11 @@ function Nav_bar() {
         <ItemNav url="/MostPopular" icons={<GiFlame />} name="Most Popular" />
         <ItemNav url="/Impopular" icons={<FaPoo />} name="Impopular" />
 
+<<<<<<< HEAD
         <NavDropdown title="Category"  id="collasible-nav-dropdown dropdown-variants-success" >
+=======
+        <NavDropdown title="Category" id="collasible-nav-dropdown" as={NavLink}>
+>>>>>>> 112c16fd6e95bccc07c58207b0fb7aafdc69ec06
           <ItemNav url="/Funny" icons={<AiOutlineThunderbolt />} name="Funny" />
           <ItemNav
             url="/Animals"
@@ -39,6 +44,7 @@ function Nav_bar() {
             name="Argentina"
           />
         </NavDropdown>
+        <ItemNav url="/Login" icons={<AiOutlineLogin />} name="Login" />
       </Container>
     </Navbar>
   );
