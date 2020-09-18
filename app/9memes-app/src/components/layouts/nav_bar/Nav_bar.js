@@ -18,7 +18,7 @@ import { NavLink } from "react-router-dom";
 function Nav_bar() {
   return (
     <Navbar collapseOnSelect expand="lg" id="nav">
-      <sector_img logo={logo} />
+      <Sector_img logo={logo} />
 
       <Container className="justify-content-center">
         <ItemNav url="/Home" icons="" name="Home" />
@@ -61,7 +61,7 @@ function ItemNav(props) {
   );
 }
 
-function sector_img(props) {
+function Sector_img(props) {
   return (
     <NavbarBrand>
       <Image
