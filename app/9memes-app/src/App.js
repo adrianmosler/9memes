@@ -6,6 +6,7 @@ import Principal from "./components/pages/Principal";
 import ListaMeme from "./components/pages/ListaMeme";
 import FreshNine from "./components/pages/FreshNine/FreshNine";
 import ImpopularNine from "./components/pages/ImpopularNine/ImpopularNine";
+import Login from './components/pages/Login/Login'
 
 class App extends React.Component {
   render() {
@@ -19,6 +20,7 @@ class App extends React.Component {
             <Route path="/UpcomingNine" component={ListaMeme} exact></Route>
             <Route path="/MostPopular" component={ListaMeme} exact></Route>
             <Route path="/ImpopularNine" exact><ImpopularNine/></Route>
+            <Route path="/Login" exact><Login/></Route>
           </Switch>
         </div>
       </div>

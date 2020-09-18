@@ -40,6 +40,7 @@ class BarraNavegacion extends React.Component {
 
           {navItem("/MostPopular", <GiFlame />, "MostPopular")}
           {navItem("/ImpopularNine", <FaPoo />, "ImpopularNine")}
+          {navItem("/Login", <GiFlame />, "Login")}
           {/* </NavbarCollapse>*/}
         </Container>
       </NavBar>
