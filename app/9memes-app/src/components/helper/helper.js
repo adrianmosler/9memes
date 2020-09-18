@@ -14,7 +14,7 @@ function GenericList(props) {
           <CardMeme
             direccion={elemento.img}
             key={elemento._id}
-            title={elemento.title}
+            title={elemento.title}  categoria ={elemento.category}
           />
         ))}
       </CardColumns>
@@ -27,8 +27,8 @@ function CardMeme(props) {
     <Card border="success" style={{ borderWidth: "3px" }}>
       <Sector_Header title={props.title} />
       <Card.Img variant="top" src={props.direccion?.secure_url} />
-      <Sectro_Footer
-        category={props.category}
+      <Sector_Footer
+        category={props.categoria}
         like={props.like}
         unLike={props.unLike}
       />
@@ -42,8 +42,12 @@ function Sector_Header(props) {
     </Card.Header>
   );
 }
-function Sectro_Footer(props) {
+function Sector_Footer(props) {
+  let salida="";
+   props.category.forEach(elemento=>salida += elemento.name+'\n');
+   
   return (
+<<<<<<< HEAD
     <Card.Footer>
       {props.category}
       {props.like ? props.like.length : 0}
@@ -54,6 +58,27 @@ function Sectro_Footer(props) {
       <Button className="btn-circle" variant="danger">
         <AiOutlineDislike />
       </Button>{" "}
+=======
+       <Card.Footer >
+
+      <h5 style={{textAlign:"right"}}>
+        {""}
+        <h6 style={{textAlign:"left"}}>
+          {salida}
+        </h6>
+             
+        12
+        
+        <Button className="btn-circle" variant="success" >
+          <AiOutlineLike />
+          
+        </Button>{" "}
+        -12
+        <Button className="btn-circle" variant="danger">
+          <AiOutlineDislike />
+        </Button>{" "}
+      </h5>
+>>>>>>> 3d68cacf3fa27db8b23d21310cbbe31de9f24a3f
     </Card.Footer>
   );
 }
