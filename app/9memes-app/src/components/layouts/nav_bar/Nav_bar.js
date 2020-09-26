@@ -23,11 +23,15 @@ function Nav_bar() {
       <Sector_img logo={logo} />
 
       <Container className="justify-content-center">
-        <ItemNav url="/Home" icons={< IoIosHome/>} name="Home" />
+        <ItemNav url="/Home" icons={<IoIosHome />} name="Home" />
         <ItemNav url="/MostPopular" icons={<GiFlame />} name="Most Popular" />
         <ItemNav url="/Impopular" icons={<FaPoo />} name="Impopular" />
 
-        <NavDropdown title="Category" style={{ color: "#2EFE2E" }} id="collasible-nav-dropdown">
+        <NavDropdown
+          title="Category"
+          style={{ color: "#2EFE2E" }}
+          id="collasible-nav-dropdown"
+        >
           <ItemNav url="/Funny" icons={<AiOutlineThunderbolt />} name="Funny" />
           <ItemNav
             url="/Animals"

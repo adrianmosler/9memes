@@ -52,11 +52,11 @@ function Sector_Footer(props) {
   return (
     <Card.Footer>
       {salida}
-      {props.like ? props.like.length : 0} 
+      {props.like ? props.like.length : 0}
       <Button className="btn-circle" variant="success">
         <AiOutlineLike />
       </Button>{" "}
-      -{props.unLike ? props.unLike.length : 0} 
+      -{props.unLike ? props.unLike.length : 0}
       <Button className="btn-circle" variant="danger">
         <AiOutlineDislike />
       </Button>{" "}
