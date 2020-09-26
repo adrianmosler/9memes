@@ -10,7 +10,8 @@ import {
   NavDropdown,
   NavbarBrand,
 } from "react-bootstrap";
-import { GiFlame, GiLindenLeaf } from "react-icons/gi";
+import { GiFlame } from "react-icons/gi";
+import { IoIosHome } from "react-icons/io";
 import { AiOutlineThunderbolt } from "react-icons/ai";
 import { AiOutlineLogin } from "react-icons/ai";
 import { FaPoo } from "react-icons/fa";
@@ -19,14 +20,18 @@ import { NavLink } from "react-router-dom";
 function Nav_bar() {
   return (
     <Navbar collapseOnSelect expand="lg" id="nav">
-      <sector_img logo={logo} />
+      <Sector_img logo={logo} />
 
       <Container className="justify-content-center">
-        <ItemNav url="/Home" icons="" name="Home" />
+        <ItemNav url="/Home" icons={<IoIosHome />} name="Home" />
         <ItemNav url="/MostPopular" icons={<GiFlame />} name="Most Popular" />
         <ItemNav url="/Impopular" icons={<FaPoo />} name="Impopular" />
 
-        <NavDropdown title="Category" id="collasible-nav-dropdown">
+        <NavDropdown
+          title="Category"
+          style={{ color: "#2EFE2E" }}
+          id="collasible-nav-dropdown"
+        >
           <ItemNav url="/Funny" icons={<AiOutlineThunderbolt />} name="Funny" />
           <ItemNav
             url="/Animals"
@@ -63,7 +68,7 @@ function ItemNav(props) {
   );
 }
 
-function sector_img(props) {
+function Sector_img(props) {
   return (
     <NavbarBrand>
       <Image
